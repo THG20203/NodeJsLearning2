@@ -2,6 +2,15 @@ const fs = require("fs");
 /* superagent module, a popular library for making HTTP requests. */
 const superagent = require("superagent");
 
+const readFilePro = file => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(file, (err, data) => {
+            if (err) reject("I could not find that file");
+            resolve(data);
+        })
+    })
+}
+
 /* This function reads the content of a file named dog.txt located in
 the same directory as the script (__dirname is a Node.js global variable 
 that holds the directory path of the current module). The readFile 
