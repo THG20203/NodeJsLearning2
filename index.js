@@ -13,5 +13,12 @@ parameter contains the contents of the file. */
 fs.readFile(`${__dirname}/dog.txt`, (err, data) => {
     console.log(`Breed: ${data}`);
 
-    superagent.get(`https://dog.ceo/api/breed/${data}/images/random Fetch!   `)
+    superagent
+    .get(`https://dog.ceo/api/breed/${data}/images/random`)
+    .end((err, res) => {
+        console.log(res.body.message);
+
+        /* callback function to save in new file */
+        fs.writeFile()
+    });
 });
